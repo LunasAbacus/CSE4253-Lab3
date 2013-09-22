@@ -6,7 +6,8 @@ using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    abstract class DrawableNodeBase : IDrawableNode
+    [Serializable()]
+    internal abstract class DrawableNodeBase : IDrawableNode
     {
         protected DrawableNodeBase(string name)
         {

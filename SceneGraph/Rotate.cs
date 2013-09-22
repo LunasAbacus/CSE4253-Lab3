@@ -3,7 +3,8 @@ using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    class Rotate : TransformableNodeBase
+    [Serializable()]
+    internal class Rotate : TransformableNodeBase
     {
         public Rotate(string name)
             : base(name)

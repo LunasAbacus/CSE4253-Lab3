@@ -3,7 +3,8 @@ using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    abstract class TransformableNodeBase : ITransformNode
+    [Serializable()]
+    internal abstract class TransformableNodeBase : ITransformNode
     {
         protected TransformableNodeBase(string name)
         {

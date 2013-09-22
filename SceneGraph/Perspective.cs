@@ -3,7 +3,8 @@ using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    class Perspective : TransformableNodeBase
+    [Serializable()]
+    internal class Perspective : TransformableNodeBase
     {
         public Perspective(string name)
             : base(name)

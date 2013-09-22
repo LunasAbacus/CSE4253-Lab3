@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Jacobs.SceneGraphCore
 {
-    class Cube : DrawableNodeBase
+    [Serializable()]
+    internal class Cube : DrawableNodeBase
     {
         public Cube(string name)
             : base(name)

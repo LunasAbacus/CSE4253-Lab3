@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    class GroupNode : IGroupNode
+    [Serializable()]
+    internal class GroupNode : IGroupNode
     {
         public string Name
         {
@@ -34,5 +38,17 @@ namespace Jacobs.SceneGraphCore
             }
             visitor.PostVisit(this);
         }
+
+        
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return children.GetEnumerator();
+        }
+
+        public IEnumerator<ISceneNode> GetEnumerator()
+        {
+            return children.GetEnumerator();
+        }
+        
     }
 }

@@ -5,29 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{86654D94-06DB-4396-AF3B-E883DF1959EF}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{0F69AD62-00A1-4F7B-AD80-3FBC9FBFFAB0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Jacobs.SceneGraphCore</RootNamespace>
-    <AssemblyName>SceneGraph</AssemblyName>
+    <RootNamespace>CreateScene</RootNamespace>
+    <AssemblyName>CreateScene</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -61,50 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Building.cs" />
-    <Compile Include="Camera.cs" />
-    <Compile Include="Cube.cs" />
-    <Compile Include="DrawableNodeBase.cs" />
-    <Compile Include="DrawMode.cs" />
-    <Compile Include="GroupNode.cs" />
-    <Compile Include="ISceneGraphFactory.cs" />
-    <Compile Include="Perspective.cs" />
+    <Compile Include="CreateScene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rotate.cs" />
-    <Compile Include="Scale.cs" />
-    <Compile Include="SceneFactory.cs" />
-    <Compile Include="Sphere.cs" />
-    <Compile Include="Terrain.cs" />
-    <Compile Include="TransformableNodeBase.cs" />
-    <Compile Include="Translate.cs" />
+    <Compile Include="SearchVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISceneGraph\ISceneGraph.csproj">
       <Project>{98C4C6FC-D935-4019-9FAD-5594A133FBCA}</Project>
       <Name>ISceneGraph</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+    <ProjectReference Include="..\SceneGraph\SceneGraph.csproj">
+      <Project>{86654D94-06DB-4396-AF3B-E883DF1959EF}</Project>
+      <Name>SceneGraph</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

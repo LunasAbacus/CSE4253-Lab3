@@ -3,7 +3,8 @@ using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    class Camera : TransformableNodeBase
+    [Serializable()]
+    internal class Camera : TransformableNodeBase
     {
         public Camera(string name)
             : base(name)

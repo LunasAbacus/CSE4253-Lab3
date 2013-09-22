@@ -3,7 +3,8 @@ using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    class DrawMode : IStateNode
+    [Serializable()]
+    internal class DrawMode : IStateNode
     {
         public DrawMode(string name)
         {

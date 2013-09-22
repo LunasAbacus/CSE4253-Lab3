@@ -3,7 +3,8 @@ using Jacobs.ISceneGraph;
 
 namespace Jacobs.SceneGraphCore
 {
-    class Translate : TransformableNodeBase
+    [Serializable()]
+    internal class Translate : TransformableNodeBase
     {
         public Translate(string name)
             : base(name)

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Jacobs.ISceneGraph;
 
-namespace Jacobs.SceneGraphCore
+namespace Jacobs.ReadScene
 {
-    class NameVisitor : IVisitor
+    class NameTypeVisitor : IVisitor
     {
         #region Member Variables
         string currentIndentation = "";
@@ -14,28 +14,36 @@ namespace Jacobs.SceneGraphCore
         public void PreVisit(IDrawableNode drawable)
         {
             System.Console.WriteLine(currentIndentation
-                + drawable.Name);
+                + "A Drawable of type "
+                + drawable.GetType().ToString()
+                + " with name: " + drawable.Name);
             currentIndentation += indentIncrement;
         }
 
         public void PreVisit(IGroupNode groupie)
         {
             System.Console.WriteLine(currentIndentation
-                + groupie.Name);
+                + "A Group of type "
+                + groupie.GetType().ToString()
+                + " with name: " + groupie.Name);
             currentIndentation += indentIncrement;
         }
 
         public void PreVisit(IStateNode statist)
         {
             System.Console.WriteLine(currentIndentation
-                + statist.Name);
+                + "A State of type "
+                + statist.GetType().ToString()
+                + " with name: " + statist.Name);
             currentIndentation += indentIncrement;
         }
 
         public void PreVisit(ITransformNode transformer)
         {
             System.Console.WriteLine(currentIndentation
-                + transformer.Name);
+                + "A Transform of type "
+                + transformer.GetType().ToString()
+                + " with name: " + transformer.Name);
             currentIndentation += indentIncrement;
         }
 
