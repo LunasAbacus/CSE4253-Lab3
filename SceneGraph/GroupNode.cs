@@ -39,16 +39,14 @@ namespace Jacobs.SceneGraphCore
             visitor.PostVisit(this);
         }
 
-        
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return children.GetEnumerator();
+            return GetEnumerator();
         }
 
         public IEnumerator<ISceneNode> GetEnumerator()
         {
             return children.GetEnumerator();
         }
-        
     }
 }
