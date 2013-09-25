@@ -1,7 +1,7 @@
 ﻿using System;
 using Jacobs.ISceneGraph;
 
-namespace CreateScene
+namespace Jacobs.CreateScene
 {
     class SearchVisitor : IVisitor
     {

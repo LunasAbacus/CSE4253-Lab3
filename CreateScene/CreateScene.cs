@@ -7,18 +7,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Jacobs.SceneGraphCore;
 using Jacobs.ISceneGraph;
 
-namespace CreateScene
+namespace Jacobs.CreateScene
 {
     class CreateScene
     {
         static string[] legalTypes = {"building", "camera", "cube", "drawmode",
-                                       "groupnode", "perspective", "rotate", "scale",
+                                       "group", "perspective", "rotate", "scale",
                                        "sphere", "terrain", "translate"};
+        static string[] iDrawables = {"cube", "sphere", "building", "terrain"};
+        static string[] iTransformables = {"camera", "rotate", "translate", "scale", "perspective"};
 
         [STAThread]
         static void Main(string[] args)
         {
             ISceneGraphFactory factory = new SceneFactory();
+            IVisitor nameVisitor = new NameVisitor();
             ISceneNode root = factory.CreateGroupNode("root", "group", null);
 
             // Loop through user input until exit encountered
@@ -27,7 +30,7 @@ namespace CreateScene
 
             do
             {
-                Console.Write("Would you like to Add or Exit: ");
+                Console.Write("\nWould you like to Add, View or Exit: ");
                 input = Console.ReadLine().ToLower();
 
                 if (input == "add")
@@ -52,9 +55,29 @@ namespace CreateScene
                     {
                         Console.WriteLine("Type: " + type + "is not a legal type");
                     }
-                    else
+                    else // valid parent and type
                     {
+                        // Actually add the node
+                        ISceneNode newNode = null;
 
+                        if (iDrawables.Contains(type))
+                        {
+                            newNode = factory.CreateDrawableNode(name, type, null);
+                        }
+                        else if (iTransformables.Contains(type))
+                        {
+                            newNode = factory.CreateTransformNode(name, type, null);
+                        }
+                        else if ("group" == type)
+                        {
+                            newNode = factory.CreateGroupNode(name, type, null);
+                        }
+                        else if ("drawmode" == type)
+                        {
+                            newNode = factory.CreateStateNode(name, type, null);
+                        }
+
+                        ((IGroupNode)parentNode).AddChild(newNode);
                     }
                 }
                 //{
@@ -87,6 +110,13 @@ namespace CreateScene
                 //    }
 
                 //}
+                else if (input == "view")
+                {
+                    // view a debug version of scenegraph
+                    Console.WriteLine();
+                    root.Accept(nameVisitor);
+                    Console.WriteLine();
+                }
                 else if (input != "exit")
                 {
                     Console.WriteLine("Invalid response, please try again.");
